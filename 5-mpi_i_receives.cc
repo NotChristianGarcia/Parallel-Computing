@@ -1,3 +1,4 @@
+// Sending and receiving multiple packets to assigned procs using Open MPI and the Irecv call
 #include <iostream>
 #include <mpi.h>
 using namespace std;

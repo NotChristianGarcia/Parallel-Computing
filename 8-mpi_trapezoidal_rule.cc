@@ -1,3 +1,4 @@
+// Solves trapezoid rule on multiple threads using Open MPI
 #include <iostream>
 #include "mpi.h"
 #include <stdio.h>

@@ -1,3 +1,4 @@
+// Sending and receiving, randomly, multiple packets using Open MPI
 #include <iostream>
 #include <mpi.h>
 using namespace std;

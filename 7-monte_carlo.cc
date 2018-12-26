@@ -1,8 +1,8 @@
+// Solves for pi using Monte Carlo method
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
 #include <time.h>
-#include "mpi.h"
 
 using namespace std;
 

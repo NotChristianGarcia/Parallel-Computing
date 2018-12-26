@@ -42,19 +42,19 @@ void initialize(float* x, float n){
 	int nbounds = n + 2;
 	for (int i = 0; i < nbounds; i++){
 		for (int j = 0; j < nbounds; j++){
-			x[i*nbounds + j] = random() / (float) RAND_MAX;
+			x[i*nbounds + j] = rand() / (float) RAND_MAX;
 		}
 	}
 }
 
-void smooth(float* x, float* y, int n, float a, float b, float c){
+void smooth(float* x, float* y, float n, float a, float b, float c){
 	int nbounds = n + 2;
-	for (int i = 1; i < n; ++i){
-		for (int j = 1; j < n; ++j){
+	for (int i = 1; i < n; i++){
+		for (int j = 1; j < n; j++){
 			y[i*nbounds + j] = a * (x[(i-1)*nbounds + (j-1)] +
 									x[(i-1)*nbounds + (j+1)] +
 									x[(i+1)*nbounds + (j-1)] +
-									x[(i+1)*nbounds + (j+1)]) +
+ 									x[(i+1)*nbounds + (j+1)]) +
 							   b * (x[i*nbounds + (j-1)] +
 									x[i*nbounds + (j+1)] +
 									x[(i-1)*nbounds + j] +
@@ -67,7 +67,7 @@ void smooth(float* x, float* y, int n, float a, float b, float c){
 void count( float* x, int n, float t, int &nb )
 {
 	nb = 0;
-	int n2 = n+2;	
+	int n2 = n+2;
 	for (int i=1; i <= n; ++i){
 		for (int j=1; j <= n; ++j){
 			if (x[i*n2 + j] < t){
@@ -77,11 +77,9 @@ void count( float* x, int n, float t, int &nb )
 	}
 } 
 
-int main(){	
-	printf("This is thread %d\n", omp_get_thread_num());
-
+int main(){
 	float *x, *y, a = .05, b = .1, c = .4, t = .1;
-	int n = 32768/*n = 1 << 14*/, nbx, nby; //bit shift to the left once to get 2^14 = 16384 v. quickly
+	int n = 1 << 14, nbx, nby; //bit shift to the left once to get 2^14 = 16384 v. quickly
 	Timer timer;
 	
 	timer.start("CPU: Alloc-X");

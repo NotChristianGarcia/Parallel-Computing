@@ -1,3 +1,4 @@
+// Printing out thread id while in parallel using OpenMP
 #include <iostream>
 #include <omp.h>
 #include <stdio.h>

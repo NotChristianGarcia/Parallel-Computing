@@ -1,3 +1,4 @@
+// Saying Hello World from multiple mpi procs along with proc number using Open MPI
 #include <iostream>
 #include "mpi.h"
 using namespace std;

@@ -1,3 +1,5 @@
+// Creates multiple MPI threads, creates a random number, reduces, 
+// and finds max random number in all threads using Open MPI
 #include <mpi.h>
 #include <stdlib.h>
 #include <iostream>
